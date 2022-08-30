@@ -30,13 +30,13 @@
 	text-decoration: none;
 	list-style: none;
 	border: none;
-	outline: 1px solid var(--color-white);
+	outline: 1px solid transparent;
+	color: var(--color-dark);
 }
 
 body {
 	font-family: 'Poppins', sans-serif;
-	color: var(--color-dark);
-	background: var(--color-light);
+	background-color: var(--color-light);
 	overflow-x: hidden;
 }
 
@@ -49,7 +49,7 @@ body {
 .profile-photo {
 	width: 2.7rem;
 	aspect-ratio: 1;
-	borer-radius: 50%;
+	border-radius: 50%;
 	overflow: hidden;
 }
 
@@ -73,7 +73,7 @@ img {
 }
 
 .btn-primary {
-	background: var(--color-primary);
+	background-color: var(--color-primary);
 	color: var(--color-white);
 }
 
@@ -88,7 +88,7 @@ img {
 /* NAV BAR */
 nav {
 	width: 100%;
-	background: var(--color-white);
+	background-color: var(--color-white);
 	padding: 0.7rem 0;
 	position: fixed;
 	top: 0;
@@ -102,13 +102,13 @@ nav .container {
 }
 
 nav .search-bar {
-	background: var(--color-light);
+	background-color: var(--color-light);
 	border-radius: var(--border-radius);
 	padding: var(--search-padding);
 }
 
 nav .search-bar input[type='search'] {
-	background: transparent;
+	background-color: transparent;
 	width: 30vw;
 	margin-left: 1rem;
 	font-size: 0.9rem;
@@ -123,4 +123,154 @@ nav .create {
 	display: flex;
 	align-items: center;
 	gap: 2rem;
+}
+
+/* MAIN */
+
+main {
+	position: relative;
+	top: 5.4rem;
+}
+
+main .container {
+	display: grid;
+	grid-template-columns: 18vw auto 20vw;
+	-moz-column-gap: 2rem;
+	column-gap: 2rem;
+	position: relative;
+}
+
+/* LEFT */
+main .container .left {
+	heigth: max-content;
+	position: -webkit-sticky;
+	position: sticky;
+	top: var(-sticky-top-left);
+}
+
+main .container .left .profile {
+	padding: var(--card-padding);
+	background-color: var(--color-white);
+	border-radius: var(--card-border-radius);
+	display: flex;
+	align-items: center;
+	-moz-column-gap: 1rem;
+	column-gap: 1rem;
+	width: 100%;
+}
+
+/* SIDEBAR */
+.left .sidebar {
+	margin-top: 1rem;
+	background-color: var(--color-white);
+	border-radius: var(--card-border-radius);
+}
+
+.left .sidebar .menu-item {
+	display: flex;
+	align-items: center;
+	height: 4rem;
+	cursor: pointer;
+	transition: all 300ms ease;
+	position: relative;
+}
+
+.left .sidebar .menu-item:hover {
+	background-color: var(--color-light);
+}
+
+.left .sidebar i {
+	font-size: 1.4rem;
+	color: var(--color-gray);
+	margin-left: 2rem;
+	position: relative;
+}
+
+.left .sidebar i .notification-count {
+	background-color: var(--color-danger);
+	color: var(--color-white);
+	font-size: 0.7rem;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	padding: 0.1rem 0.4rem;
+	position: absolute;
+	top: -0.2rem;
+	right: -0.3rem;
+	border-radius: var(--border-radius);
+}
+
+.left .sidebar h3 {
+	margin-left: 1.5rem;
+	font-size: 1rem;
+}
+
+.left .sidebar .active {
+	background-color: var(--color-light);
+}
+
+.left .sidebar .active i::before,
+.left .sidebar .active h3 {
+	color: var(--color-primary);
+}
+
+.left .sidebar .active::before {
+	content: '';
+	display: block;
+	width: 0.5rem;
+	height: 100%;
+	position: absolute;
+	background-color: var(--color-primary);
+}
+
+.left .sidebar .menu-item:first-child.active {
+	border-top-left-radius: var(--card-border-radius);
+	overflow: hidden;
+}
+
+.left .sidebar .menu-item:last-child.active {
+	border-bottom-left-radius: var(--card-border-radius);
+	overflow: hidden;
+}
+
+.left .btn {
+	margin-top: 1rem;
+	width: 100%;
+	text-align: center;
+	padding: 1rem 0;
+}
+
+/* NOTIFICATION POPUP */
+.left .notifications-popup {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 110%;
+	width: 30rem;
+	background-color: var(--color-white);
+	border-radius: var(--card-border-radius);
+	padding: var(--card-padding);
+	box-shadow: 0 0 2rem hsl(var(--color-primary), 75%, 60%, 25%);
+	z-index: 8;
+}
+
+.left .notifications-popup::before {
+	content: '';
+	width: 1.2rem;
+	height: 1.2rem;
+	display: block;
+	position: absolute;
+	left: -0.6rem;
+	tranform: rotate(45deg);
+}
+
+.left .notifications-popup > div {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.left .notifications-popup small {
+	display: block;
 }
