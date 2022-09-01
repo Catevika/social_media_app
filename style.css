@@ -150,7 +150,9 @@ main .container {
 
 /* ------------ lEFT ------------ */
 main .container .left {
-	heigth: max-content;
+	height: -webkit-max-content;
+	height: -moz-max-content;
+	height: max-content;
 	position: -webkit-sticky;
 	position: sticky;
 	top: var(-sticky-top-left);
@@ -159,6 +161,7 @@ main .container .left {
 main .container .left .profile {
 	padding: var(--card-padding);
 	background-color: var(--color-white);
+	color: var(--color-dark);
 	border-radius: var(--card-border-radius);
 	display: flex;
 	align-items: center;
@@ -270,10 +273,10 @@ main .container .left .profile {
 	display: block;
 	position: absolute;
 	left: -0.6rem;
-	tranform: rotate(45deg);
+	transform: rotate(45deg);
 }
 
-.left .notifications-popup > div {
+.left .notifications-popup>div {
 	display: flex;
 	align-items: flex-start;
 	gap: 1rem;
@@ -577,7 +580,7 @@ main .container .left .profile {
 	margin-top: 5rem;
 }
 
-.customize-theme .font-size > div {
+.customize-theme .font-size>div {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -664,7 +667,7 @@ main .container .left .profile {
 	gap: 1.5rem;
 }
 
-.customize-theme .choose-bg > div {
+.customize-theme .choose-bg>div {
 	padding: var(--card-padding);
 	display: flex;
 	width: 100%;
@@ -675,7 +678,7 @@ main .container .left .profile {
 	cursor: pointer;
 }
 
-.customize-theme .choose-bg > div.active {
+.customize-theme .choose-bg>div.active {
 	border: 2px solid var(--color-primary);
 }
 
@@ -683,16 +686,18 @@ main .container .left .profile {
 	background-color: white;
 	color: black;
 }
+
 .customize-theme .choose-bg .bg-2 {
 	background-color: hsl(252, 30%, 17%);
 	color: white;
 }
+
 .customize-theme .choose-bg .bg-3 {
 	background-color: hsl(252, 30%, 10%);
 	color: white;
 }
 
-.customize-theme .choose-bg > div span {
+.customize-theme .choose-bg>div span {
 	width: 2.2rem;
 	height: 2.2rem;
 	border-radius: 50%;
